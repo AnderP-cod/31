@@ -17,9 +17,9 @@ class context_manager:
 
     def __enter__(self):
         os.chdir(f'D:\python\Домашнее задание\lesson_31\{self.folder}')
-        print(os.getcwd())
-        self.file = open(self.name,self.metod)
-        self.file.write(self.write)
+        with open(self.name,self.metod) as self.file:
+            self.file.write(self.write)
+            print(self.write)
         return self.file
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.file.close()
